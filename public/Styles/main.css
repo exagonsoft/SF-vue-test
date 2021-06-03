@@ -1,0 +1,52 @@
+.logo{
+    width:100px;
+    heigth:100px
+}
+.itemsContainer{
+    
+}
+.navbar-nav {
+    width:100%;
+    float: right;
+    padding-left: 5px;
+}
+
+.brandName {
+    font-weight: bold;
+    margin-top: 15px;
+    color: white;
+}
+
+.textWhite {
+    color: white;
+    font-weight: bold;
+}
+
+    .textWhite:hover {
+        color: darkgrey;
+        text-decoration:none;
+    }
+.Box {
+    width:95%;
+    position: relative;
+    left: 2%;
+    padding:20px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.897);
+    border-radius: 12px;
+    Box-shadow: black 5px 5px 6px 2px;
+}
+.bodyBack{
+    background: rgba(135, 133, 139, 0.932);
+}
+.buttonAdd{
+    margin-left: 2%;
+}
+.mainTitle{
+    color:seagreen;
+    font-weight: bolder;
+}
+.secTitle{
+    color:rgb(61, 162, 230);
+    font-weight: bolder;
+}
