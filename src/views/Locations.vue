@@ -1,55 +1,39 @@
 <template>
-  <div class="container">
+  <div class="">
     <header>
-      <h1 class="text-center mainTitle text-2xl">{{ title }}</h1>
+      <h1 class="text-center mainTitle">{{ title }}</h1>
     </header>
     <br />
-    <div class="row">
-      <div class="col-md-12">
-        <div class="table-responsive">
-          <div id="appMoviles">
-            <div class="container">
-              <div class="row mt-5">
-                <div class="col-lg-12">
-                  <div class="Box">
-                    <table class="table table-striped">
-                      <thead>
-                        <tr class="bg-primary text-light">
-                          <th Style="display:none">ID</th>
-                          <th>Sucursal</th>
-                          <th>Horario</th>
-                          <th>Direccion</th>
-                          <th>Usuarios</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr
-                          v-for="location of locations"
-                          v-bind:key="location.id"
-                        >
-                          <th scope="row" Style="display:none">
-                            {{ location.id }}
-                          </th>
-                          <td>{{ location.locName }}</td>
-                          <td>
-                            {{ location.locShcedule }}
-                          </td>
-                          <td>
-                            {{ location.locAddresss }}
-                          </td>
-                          <td>
-                            {{ location.locUsers }}
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <br />
+    <div class="Box">
+      <table class="table table-striped">
+        <thead>
+          <tr class="bg-primary text-light">
+            <th Style="display:none">ID</th>
+            <th>Sucursal</th>
+            <th class="shortText">Horario</th>
+            <th>Direccion</th>
+            <th class="shortText">Usuarios</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="location of LocationList" v-bind:key="location.id">
+            <th scope="row" Style="display:none">
+              {{ location.id }}
+            </th>
+            <td>{{ location.locName }}</td>
+            <td class="shortText">
+              {{ location.locShcedule }}
+            </td>
+            <td>
+              {{ location.locAddresss }}
+            </td>
+            <td class="shortText">
+              {{ location.locUsers }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
@@ -57,14 +41,15 @@
 <script>
 import db from '../assets/json/db.json';
 export default {
-  data() {
-    return {
-      title: 'Sucursales',
-    };
+  data: () => ({
+    title: 'Sucursales',
+    LocationList: [],
+  }),
+  created: function () {
+    this.LoadLocations();
   },
-  computed: {
-    //Obteniendo la lista de Sucursales
-    locations() {
+  methods: {
+    LoadLocations: function () {
       var sucursales = new Array();
       db.locations.forEach((location) => {
         var locId = location.id;
@@ -107,9 +92,9 @@ export default {
       sucursales.sort(function (nameA, nameB) {
         let a = nameA.locName.toUpperCase(),
           b = nameB.locName.toUpperCase();
-        return a == b ? 0 : a > b ? -1 : 1;
+        return a == b ? 0 : a > b ? 1 : 1;
       });
-      return sucursales;
+      this.LocationList = sucursales;
     },
   },
 };

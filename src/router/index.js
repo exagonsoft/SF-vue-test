@@ -15,22 +15,22 @@ const routes = [
     component: Home,
   },
   {
-    path: '/users',
+    path: '/usuarios',
     name: 'Users',
     component: Users,
   },
   {
-    path: '/locations',
+    path: '/sucursales',
     name: 'Locations',
     component: Locations,
   },
   {
-    path: '/templates',
+    path: '/plantillas',
     name: 'TurnTemplates',
     component: TurnTemplates,
   },
   {
-    path: '/calendar',
+    path: '/calendario',
     name: 'Calendar',
     component: Calendar,
   },

@@ -1,7 +1,12 @@
 <template>
   <div id="app">
-    <TheNavBar />
-    <router-view class="m-10" />
+    <div>
+      <TheNavBar />
+    </div>
+    <br />
+    <div class="contentSeparation">
+      <router-view class="m-10" />
+    </div>
   </div>
 </template>
 

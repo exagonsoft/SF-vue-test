@@ -1,67 +1,51 @@
 <template>
-  <div class="container">
+  <div class="">
     <header>
-      <h1 class="text-center mainTitle text-2xl">{{ title }}</h1>
+      <h1 class="text-center mainTitle">{{ title }}</h1>
     </header>
     <br />
-    <div class="row">
-      <div class="col-md-12">
-        <div class="table-responsive">
-          <div id="appMoviles">
-            <div class="container">
-              <div class="row mt-5">
-                <div class="col-lg-12">
-                  <div class="Box">
-                    <table class="table table-striped">
-                      <thead>
-                        <tr class="bg-primary text-light">
-                          <th Style="display:none">ID</th>
-                          <th>Plantilla</th>
-                          <th>Entrada</th>
-                          <th>Salida</th>
-                          <th>Descanso</th>
-                          <th>Horas Trabajadas</th>
-                          <th>Cargo</th>
-                          <th>Sucursales</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr
-                          v-for="template of templates"
-                          v-bind:key="template.id"
-                        >
-                          <th scope="row" Style="display:none">
-                            {{ template.id }}
-                          </th>
-                          <td>{{ template.name }}</td>
-                          <td>
-                            {{ template.checkIn }}
-                          </td>
-                          <td>
-                            {{ template.checkOut }}
-                          </td>
-                          <td>
-                            {{ template.breakTime }}
-                          </td>
-                          <td>
-                            {{ template.hours }}
-                          </td>
-                          <td>
-                            {{ template.cargo }}
-                          </td>
-                          <td>
-                            {{ template.locations }}
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <br />
+    <div class="Box">
+      <table class="table table-striped tableFill">
+        <thead>
+          <tr class="bg-primary text-light">
+            <th Style="display:none">ID</th>
+            <th>Plantilla</th>
+            <th class="shortText">Entrada</th>
+            <th class="shortText">Salida</th>
+            <th class="shortText">Descanso</th>
+            <th class="shortText">Horas Trabajadas (h)</th>
+            <th class="shortText">Cargo</th>
+            <th class="shortText">Sucursales</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="template of TemplateList" v-bind:key="template.id">
+            <th scope="row" Style="display:none">
+              {{ template.id }}
+            </th>
+            <td>{{ template.name }}</td>
+            <td class="shortText">
+              {{ template.checkIn }}
+            </td>
+            <td class="shortText">
+              {{ template.checkOut }}
+            </td>
+            <td class="shortText">
+              {{ template.breakTime }}
+            </td>
+            <td class="shortText">
+              {{ template.hours }}
+            </td>
+            <td class="shortText">
+              {{ template.cargo }}
+            </td>
+            <td class="shortText">
+              {{ template.locations }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
@@ -69,13 +53,15 @@
 <script>
 import db from '../assets/json/db.json';
 export default {
-  data() {
-    return {
-      title: 'Plantillas por Turno',
-    };
+  data: () => ({
+    title: 'Plantillas por Turno',
+    TemplateList: [],
+  }),
+  created: function () {
+    this.LoadTemplates();
   },
-  computed: {
-    templates() {
+  methods: {
+    LoadTemplates: function () {
       var templatesData = new Array();
       db.turnTemplates.forEach((template) => {
         var templateId = template.id;
@@ -124,7 +110,7 @@ export default {
         };
         templatesData.push(arrayTemplate);
       });
-      return templatesData;
+      this.TemplateList = templatesData;
     },
   },
 };
