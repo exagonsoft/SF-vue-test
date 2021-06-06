@@ -1,8 +1,10 @@
 ### Tarea 1
 
-```
-Completar en router para mapear todos los links del navbar(en lo personal creo que es mas limpio trabajar con el router, aunque tambien se podia haber usado el mapeo con las direcciones ficicas "No recomendado")  Modificar el estilo de la navBar (decisión personal) para mejorar la accesibilidad de nuestra App, Manteniendo el menú de navegación siempre visible
-```
+Completar en router para mapear todos los links del navbar(en lo personal creo que es mas limpio trabajar con el router,
+aunque tambien se podia haber usado el mapeo con las direcciones ficicas "No recomendado")  
+Modificar el estilo de la navBar (decisión personal) para mejorar la accesibilidad de nuestra App, 
+Manteniendo el menú de navegación siempre visible
+
 
 ### Tarea 2
 Trabajar con los datos del archivo .json para crear una lista de datos para pintar en la tabla que se mostrara al usuario 
