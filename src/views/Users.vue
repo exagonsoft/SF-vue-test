@@ -37,6 +37,7 @@
                   </td>
                   <td>
                     <input
+                      type="email"
                       class="ligtTextBox"
                       v-model="UserForAddEmail"
                       id="UserName"
@@ -63,6 +64,7 @@
                   </td>
                   <td>
                     <input
+                      type="date"
                       class="ligtTextBox"
                       v-model="UserForAddBirthDate"
                       id="UserName"
@@ -176,6 +178,7 @@
                   </td>
                   <td>
                     <input
+                      type="email"
                       class="ligtTextBox"
                       v-model="UserForAddEmail"
                       id="UserName"
@@ -202,6 +205,7 @@
                   </td>
                   <td>
                     <input
+                      type="date"
                       class="ligtTextBox"
                       v-model="UserForAddBirthDate"
                       id="UserName"
